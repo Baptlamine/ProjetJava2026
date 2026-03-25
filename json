@@ -1,0 +1,48 @@
+{
+    "schemaVersion": 1,
+    "id": "île_v1",
+    "title": "L’île de la mouette",
+    "author": "Attila Le Deux",
+    "start": "p1",
+    "puzzles": {
+        "p1": {
+            "type": "qcm",
+            "prompt": "vous avez faim, et cherchez de quoi manger. Vous tombez sur une mouette avec des larves à l’intérieur ainsi que des baies d’un rouge vif. Que choisissez-vous de manger ?",
+            "image": "images/ile_deserte.png",
+            "choices": ["La larve", "Les baies", "La mouette"],
+            "routes": {
+                "La larve": "p3",
+                "Les baies": "end_lose",
+                "La mouette": "p2"
+            }
+        },
+        "p2": {
+            "type": "boolean",
+            "prompt": "La viande de mouette vous rend faible mais vous pouvez encore marcher. Vous arrivez près d’une rivière. Voulez-vous vous reposer ?",
+            "image": "images/riviere.png",
+            "routes": {
+                "true": "p3",
+                "false": "end_lose"
+            }
+        },
+        "p3": {
+            "type": "text",
+            "prompt": " Vous êtes enfin en pleine forme après avoir trouvé à manger, vous arrivez au cœur de l’île et tombez sur un village perdu au fin fond de l’île, vous demandez donc de l’aide aux indigènes. Ils acceptent de vous donner de l’aide uniquement si vous gagnez un combat quelque peu spécial contre le chef de la tribu. Le chef exige le résultat de la multiplication entre le nombre de crabes et de bananes.",
+            "image": "images/combat_chef.png",
+            "routes": {
+                "24": "p4",
+                "*": "p1"
+            }
+        },
+        "p4": {
+            "type": "qcm",
+            "prompt": "Le salut ne vient jamais d'où le soleil se lève, ni d'où le vent froid souffle. Quelle pirogue choisir ?",
+            "image": "images/pirogues.png",
+            "choices": ["PIROGUE DE L'EST", "PIROGUE DU SUD", "PIROGUE DU NORD"],
+            "routes": {
+                "PIROGUE DU SUD": "end_win",
+                "*": "end_lose"
+            }
+        }
+    }
+}
